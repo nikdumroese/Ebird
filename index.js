@@ -2,15 +2,16 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const express = require('express');
 const app = express();
+const auth = require('./auth.json');
+const token = auth.token
 
 app.use(express.static(__dirname + `/public`));
 
-app.get('/', function(req, res) {
-  console.log("at get route /");
-    (res.sendFile('index.html'));
+app.get('/a', function(req, res) {
+    // (res.sendFile('index.html'));
+    console.log("at get route /");
+    console.log("token: ", token);
 });
-
-
 
 
 
